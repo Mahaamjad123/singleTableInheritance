@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.firstname %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @user.age %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+
+<h1>Car Catagory</h1>
+<%= link_to 'New', new_user_car_path(@user) %>
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Price</th>
+      <th>Color</th>
+      <th>Model</th>
+      <th>Company</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.cars.each do |catagory| %>
+      <tr>
+        <td><%= link_to 'delete', [@user, catagory], method: :delete %></td>
+        <td><%= catagory.price %></td>
+        <td><%= catagory.color %></td>
+        <td><%= catagory.model %></td>
+        <td><%= catagory.company %></td>
+        <td><%= catagory.city %></td>
+      </tr>    
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Motorcycle Catagory</h1>
+<%= link_to 'New', new_user_motorcycle_url(@user) %>
+<table class='table'>
+  <thead>
+    <tr>
+    <th></th>
+    <th>Price</th>
+    <th>Color</th>
+    <th>Model</th>
+    <th>Company</th>
+    <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @user.motorcycles.each do |catagory| %>
+      <tr>
+      <td><%= link_to 'delete', [@user, catagory], method: :delete %></td>
+      <td><%= catagory.price %></td>
+      <td><%= catagory.color %></td>
+      <td><%= catagory.model %></td>
+      <td><%= catagory.company %></td>
+      <td><%= catagory.city %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
